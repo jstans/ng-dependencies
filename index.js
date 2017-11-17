@@ -18,6 +18,7 @@ function findDependencies(source, opts) {
   var rootDeps = [];
   var modules = {};
 
+  console.log(source);
   estraverse.traverse(esprima.parse(source.toString('utf-8'), {sourceType: "module"}), {
     leave: function(node, parent) {
       if (canBeModuleNameVariableDeclaration(node)) {
